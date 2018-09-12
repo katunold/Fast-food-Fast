@@ -42,3 +42,22 @@ class OrdersController(MethodView):
             'data': order_feed.__dict__
         }
         return jsonify(response_object), 201
+
+    def get(self):
+        """
+        Get method to return orders
+        :return:
+        """
+        if not self.order_.get_all_orders():
+            response_object = {
+                'status': 'success',
+                'message': 'No orders currently',
+                'data': False
+            }
+            return jsonify(response_object), 200
+
+        response_object = {
+            'status': 'success',
+            'data': [order.__dict__ for order in self.order_.get_all_orders()]
+        }
+        return jsonify(response_object), 200
