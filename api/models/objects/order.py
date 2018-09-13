@@ -1,7 +1,6 @@
 """
 Module to for the order object
 """
-from typing import List
 from datetime import datetime
 
 from api.utils.utils import JSONSerializable
@@ -17,4 +16,4 @@ class OrderModel(JSONSerializable):
         self.order_status = 'pending'
 
 
-orders: List[OrderModel] = []
+

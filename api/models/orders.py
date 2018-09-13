@@ -1,7 +1,9 @@
 """
 Module orders
 """
-from api.models.objects.order import OrderModel, orders
+from typing import List
+
+from api.models.objects.order import OrderModel
 
 
 class Orders:
@@ -12,5 +14,10 @@ class Orders:
         self.count += 1
         order = OrderModel(ordered_by, order_items)
         order.order_id = self.count
-        orders.append(order)
+        self.orders.append(order)
         return order
+
+    def get_all_orders(cls) -> List[OrderModel]:
+        return cls.orders
+
+    orders: List[OrderModel] = []
