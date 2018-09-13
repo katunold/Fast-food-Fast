@@ -43,3 +43,12 @@ class ErrorFeedback:
             'data': False
         }
         return jsonify(response_object), 200
+
+    @staticmethod
+    def missing_key(keys):
+        response_object = {
+            'status': 'fail',
+            'error_message': 'Missing key ' + keys,
+            'data': False
+        }
+        return jsonify(response_object), 400
