@@ -90,3 +90,41 @@ class TestFastFoodFast(TestCase):
         self.assertTrue(response_data['status'], 'success')
         self.assertTrue(response_data['data'])
         self.assertEqual(request_data.status_code, 200)
+
+    def test_get_order_from_empty_storage(self):
+        request_data = self.client().get('/api/v1/orders/1/')
+
+        response_data = json.loads(request_data.data.decode())
+        self.assertTrue(response_data['status'], 'success')
+        self.assertTrue(response_data['message'], 'No orders currently')
+        self.assertFalse(response_data['data'])
+        self.assertEqual(request_data.status_code, 200)
+
+    def test_get_order_not_existing(self):
+        self.make_order('Rubarema', 'Posho and Beans')
+        self.make_order('Arnold', 'Pasted Gnuts and Matooke')
+        self.make_order('Acram', 'Pasted Gnuts, Matooke and sweet potatoes')
+        self.make_order('Apple', 'Chips and Chicken')
+
+        request_data = self.client().get('/api/v1/orders/5/')
+
+        response_data = json.loads(request_data.data.decode())
+        print(response_data)
+        self.assertTrue(response_data['status'], 'fail')
+        self.assertTrue(response_data['error_message'], 'Order does not exist')
+        self.assertFalse(response_data['data'])
+        self.assertEqual(request_data.status_code, 400)
+
+    def test_get_order_that_exists(self):
+        self.make_order('Rubarema', 'Posho and Beans')
+        self.make_order('Arnold', 'Pasted Gnuts and Matooke')
+        self.make_order('Acram', 'Pasted Gnuts, Matooke and sweet potatoes')
+        self.make_order('Apple', 'Chips and Chicken')
+
+        request_data = self.client().get('/api/v1/orders/2/')
+
+        response_data = json.loads(request_data.data.decode())
+        self.assertTrue(response_data['status'], 'success')
+        self.assertTrue(response_data['message'], 'Order exists')
+        self.assertTrue(response_data['data'])
+        self.assertEqual(request_data.status_code, 200)
