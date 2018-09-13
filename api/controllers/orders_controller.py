@@ -16,6 +16,7 @@ class OrdersController(MethodView):
     order_ = Orders()
     ordered_by = None
     order_items = None
+    order_status = None
 
     def post(self):
         """
@@ -76,3 +77,30 @@ class OrdersController(MethodView):
                 return jsonify(response_object), 200
 
         return ErrorFeedback.order_absent()
+
+    def put(self, order_id=None):
+        """
+        Method to update the order status
+        :param order_id:
+        :return:
+        """
+        order = Orders.find_one_order(order_id)
+
+        post_data = request.get_json()
+        key = 'order_status'
+        if key not in post_data:
+            return ErrorFeedback.missing_key(key)
+        try:
+            self.order_status = post_data['order_status'].strip()
+        except AttributeError:
+            return ErrorFeedback.invalid_data_format()
+
+        if not self.order_status:
+            return ErrorFeedback.empty_data_fields()
+        elif DataValidation.check_string_of_numbers(self.order_status):
+            return ErrorFeedback.invalid_data_format()
+
+        if not order:
+            return ErrorFeedback.order_absent()
+
+        return Orders.update_order(order_id, self.order_status)
