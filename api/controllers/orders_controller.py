@@ -43,21 +43,36 @@ class OrdersController(MethodView):
         }
         return jsonify(response_object), 201
 
-    def get(self):
+    def get(self, order_id=None):
         """
         Get method to return orders
         :return:
         """
+
         if not self.order_.get_all_orders():
-            response_object = {
-                'status': 'success',
-                'message': 'No orders currently',
-                'data': False
-            }
-            return jsonify(response_object), 200
+            return ErrorFeedback.empty_data_storage()
+        elif order_id:
+            return self.get_single_order(order_id)
 
         response_object = {
             'status': 'success',
             'data': [order.__dict__ for order in self.order_.get_all_orders()]
         }
         return jsonify(response_object), 200
+
+    def get_single_order(self, order_id):
+        """
+        Method to get a single order
+        :param order_id:
+        :return:
+        """
+        for order in self.order_.get_all_orders():
+            if order.order_id == order_id:
+                response_object = {
+                    'status': 'success',
+                    'message': 'Order exists',
+                    'data': order.__dict__
+                }
+                return jsonify(response_object), 200
+
+        return ErrorFeedback.order_absent()
