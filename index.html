@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link href="UI/assets/css/main.css" rel="stylesheet" type="text/css"/>
+    <script type="application/javascript" src="UI/assets/js/main.js"></script>
 </head>
 <body>
 <nav class="navigation-bar">
@@ -39,7 +40,7 @@
                 <input type="text" id="username" name="" placeholder="Username" required>
                 <input type="password" id="password" name="" placeholder="Password" required>
                 <input id="check" type="checkbox" checked name="" ><b style="color: blue">keep me signed in</b>
-                <input type="button" class="btn-login" onclick="window.location='UI/client/make_orders.html'" value="Login">
+                <input type="button" class="btn-login" onclick="validate()" value="Login">
             </form>
         </div>
         <div class="circle">
