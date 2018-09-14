@@ -27,7 +27,7 @@ div.order {
     margin-top: 2em;
 }
 
-div.select-item, div.notes, div.order-button {
+div.select-item, div.notes {
     width: 100%;
     margin-bottom: 2em;
 }
@@ -54,7 +54,26 @@ div.select-item, div.notes, div.order-button {
     border-radius: .5em;
 }
 
-/* If the screen size is 600px or less, set the font-size of <div> to 6px */
+/*--- exceptions of user_profile settings ---*/
+label {
+    font-size: medium;
+    margin: 0 auto auto;
+}
+
+div.profile_1 {
+    margin: 2em auto;
+    width: 100%;
+}
+div.profile_1 input {
+    width: 100%;
+}
+
+div.profile_main {
+    width: 70%;
+    margin: auto;
+}
+
+/* If the screen size is 1000px or less, set the font-size of <div> to 6px */
 @media only screen and (max-width: 1000px) {
     .navigation-bar {
         height: 150px;
@@ -89,7 +108,7 @@ div.select-item, div.notes, div.order-button {
         margin-top: 1em;
     }
 
-    div.select-item, div.notes, div.order-button {
+    div.select-item, div.notes {
         margin-bottom: .5em;
     }
 
@@ -108,7 +127,7 @@ div.select-item, div.notes, div.order-button {
         margin-top: 1em;
     }
 
-    div.select-item, div.notes, div.order-button {
+    div.select-item, div.notes {
         margin-bottom: .5em;
     }
 }
