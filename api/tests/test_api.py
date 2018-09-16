@@ -210,24 +210,22 @@ class TestFastFoodFast(TestCase):
         self.assertFalse(post_response['data'])
         self.assertTrue(request_data.content_type, 'application/json')
         self.assertEqual(request_data.status_code, 400)
-    """
-    def test_get_empty_orders(self):
-            request_data = self.client().get('/api/v1/orders/')
 
-            response_data = json.loads(request_data.data.decode())
+    def test_a_get_empty_orders(self):
+        request_data = self.client().get('/api/v1/orders/')
 
-            self.assertTrue(response_data['status'], 'success')
-            self.assertTrue(response_data['message'], 'No orders currently')
-            self.assertFalse(response_data['data'])
-            self.assertEqual(request_data.status_code, 200)
+        response_data = json.loads(request_data.data.decode())
 
-    def test_get_order_from_empty_storage(self):
-            request_data = self.client().get('/api/v1/orders/1/')
+        self.assertTrue(response_data['status'], 'success')
+        self.assertTrue(response_data['message'], 'No orders currently')
+        self.assertFalse(response_data['data'])
+        self.assertEqual(request_data.status_code, 200)
 
-            response_data = json.loads(request_data.data.decode())
-            self.assertTrue(response_data['status'], 'success')
-            self.assertTrue(response_data['message'], 'No orders currently')
-            self.assertFalse(response_data['data'])
-            self.assertEqual(request_data.status_code, 200)
-    
-    """
+    def test_b_get_order_from_empty_storage(self):
+        request_data = self.client().get('/api/v1/orders/1/')
+
+        response_data = json.loads(request_data.data.decode())
+        self.assertTrue(response_data['status'], 'success')
+        self.assertTrue(response_data['message'], 'No orders currently')
+        self.assertFalse(response_data['data'])
+        self.assertEqual(request_data.status_code, 200)
