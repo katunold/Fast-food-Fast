@@ -1,11 +1,7 @@
-var accountName = "admin";
-var accountPassword = "admin";
-
 
 function validate() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if ( username === accountName && password === accountPassword) {
+    var user_type = document.getElementById("user_type");
+    if ( user_type.value === "admin") {
         alert("Welcome! You Have Successfully logged-in as admin");
         window.location = 'UI/admin/orders.html';
         return false
