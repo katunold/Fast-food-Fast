@@ -39,6 +39,10 @@
             <form>
                 <input type="text" id="username" name="" placeholder="Username" required>
                 <input type="password" id="password" name="" placeholder="Password" required>
+                <select name="user_type" id="user_type" required >
+                    <option value="client">Our Client</option>
+                    <option value="admin">Our Admin</option>
+                </select>
                 <input id="check" type="checkbox" checked name="" ><b style="color: blue">keep me signed in</b>
                 <input type="button" class="btn-login" onclick="validate()" value="Login">
             </form>
