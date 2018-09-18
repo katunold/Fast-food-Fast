@@ -36,7 +36,7 @@ What you need to install the software and get started.
 ```
 ### Installation
 ```bash
-Type:
+Type: "https://github.com/katunold/Fast-food-Fast.git" in terminal
 ```
 The UI folder houses the user interface. To access the user interface, open the index.html.
 
