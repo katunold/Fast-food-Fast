@@ -5,6 +5,7 @@ from unittest import TestCase
 
 from flask import json
 
+from api.models.orders import Orders
 from run import APP
 
 
@@ -16,6 +17,9 @@ class TestFastFoodFast(TestCase):
     def setUp(self):
         self.app = APP
         self.client = self.app.test_client
+
+    def test_data_structure(self):
+        self.assertTrue(isinstance(Orders.orders, list))
 
     def make_order(self, ordered_by, order_items):
         """
@@ -42,6 +46,21 @@ class TestFastFoodFast(TestCase):
         self.assertTrue(post_response['data'])
         self.assertTrue(post.content_type, 'application/json')
         self.assertEqual(post.status_code, 201)
+
+    def test_make_order_with_missing_key(self):
+        post = self.client().post(
+            '/api/v1/orders/',
+            data=json.dumps(dict(
+                ordered_by='Rubarema'
+            )),
+            content_type='application/json'
+        )
+        post_response = json.loads(post.data.decode())
+        self.assertTrue(post_response['status'], 'fail')
+        self.assertTrue(post_response['error_message'], 'Some Field are missing')
+        self.assertFalse(post_response['data'])
+        self.assertTrue(post.content_type, 'application/json')
+        self.assertEqual(post.status_code, 400)
 
     def test_order_with_invalid_data(self):
         post = self.make_order(123535, 'Posho and Beans')
@@ -149,6 +168,24 @@ class TestFastFoodFast(TestCase):
         self.assertTrue(response_data['error_message'], 'Order does not exist')
         self.assertFalse(response_data['data'])
         self.assertEqual(request_data.status_code, 400)
+
+    def test_update_order_with_missing_key(self):
+        self.make_order('Rubarema', 'Posho and Beans')
+        self.make_order('Arnold', 'Pasted Gnuts and Matooke')
+        self.make_order('Acram', 'Pasted Gnuts, Matooke and sweet potatoes')
+        self.make_order('Apple', 'Chips and Chicken')
+
+        post = self.client().put(
+            '/api/v1/orders/3/',
+            data=json.dumps(dict()),
+            content_type='application/json'
+        )
+        post_response = json.loads(post.data.decode())
+        self.assertTrue(post_response['status'], 'fail')
+        self.assertTrue(post_response['error_message'], 'Some Field are missing')
+        self.assertFalse(post_response['data'])
+        self.assertTrue(post.content_type, 'application/json')
+        self.assertEqual(post.status_code, 400)
 
     def test_empty_feedback(self):
         self.make_order('Rubarema', 'Posho and Beans')

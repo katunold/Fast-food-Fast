@@ -24,6 +24,9 @@ class OrdersController(MethodView):
         :return:
         """
         post_data = request.get_json()
+        keys = ('ordered_by', 'order_items')
+        if not set(keys).issubset(set(post_data)):
+            return ErrorFeedback.missing_key()
         try:
             self.ordered_by = post_data['ordered_by'].strip()
             self.order_items = post_data['order_items'].strip()
@@ -89,7 +92,7 @@ class OrdersController(MethodView):
         post_data = request.get_json()
         key = 'order_status'
         if key not in post_data:
-            return ErrorFeedback.missing_key(key)
+            return ErrorFeedback.missing_key()
         try:
             self.order_status = post_data['order_status'].strip()
         except AttributeError:

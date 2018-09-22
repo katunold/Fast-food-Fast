@@ -3,10 +3,8 @@ Module to for the order object
 """
 from datetime import datetime
 
-from api.utils.utils import JSONSerializable
 
-
-class OrderModel(JSONSerializable):
+class OrderModel:
 
     def __init__(self, ordered_by=None, order_items=None):
         self.order_id = None

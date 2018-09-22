@@ -33,8 +33,6 @@ class Orders:
     @classmethod
     def update_order(cls, order_id, order_status=None):
         order = cls.find_one_order(order_id)
-        if not order:
-            return False
         order.order_status = order_status
         response_object = {
             'status': 'success',
