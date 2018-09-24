@@ -1,4 +1,4 @@
-body.admin {
+body.user_background {
     background-color: #efefef;
 }
 /*--- style items available ---*/
@@ -70,6 +70,7 @@ div.profile_1 {
 }
 div.profile_1 input {
     width: 100%;
+    padding: 10px 5px;
 }
 
 div.profile_main {
