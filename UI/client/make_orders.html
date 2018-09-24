@@ -8,7 +8,7 @@
     <link href="../assets/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/css/main1.css" rel="stylesheet" type="text/css"/>
 </head>
-<body style="background-color: #efefef;">
+<body id="user_background">
 <nav class="navigation-bar">
     <div class="nav-content">
         <div class="logo" >
@@ -22,11 +22,11 @@
         <div class="links">
             <ul>
                 <li >
-                    <a href="make_orders.html" style="color: #fff;font-weight: bold;">
+                    <a href="make_orders.html" class="active">
                         Order Today
                     </a>
                 </li>
-                <li ><a href="#">Your Profile</a></li>
+                <li ><a href="user_profile.html">Your Profile</a></li>
                 <li ><a href="../../index.html">Sign-out</a></li>
             </ul>
         </div>
@@ -34,7 +34,7 @@
 </nav>
 <div class="wrapper">
     <div class="item-available">
-        <h3 align="center">Available Food & Snacks</h3>
+        <h3>Available Food & Snacks</h3>
         <table>
             <tr>
                 <th>Food Item</th>
@@ -104,39 +104,30 @@
         </table>
     </div>
     <div class="order">
-        <h3 align="center">Make Your Order</h3>
-        <form>
-            <div class="select-item">
-                <select id="my_order" name="my_order">
-                    <option value="Select order items">Select order items</option>
-                    <option value="Plain rice">Plain rice</option>
-                    <option value="Chips">Chips</option>
-                    <option value="Grilled Chicken">Grilled Chicken</option>
-                </select>
-            </div>
-            <div class="notes">
-                <textarea class="order-message" placeholder="Any additional notes ....."></textarea>
-            </div>
-            <div class="order-button">
+        <h3>Make Your Order</h3>
+        <div class="profile_main">
+            <form>
+                <div class="select-item">
+                    <select id="my_order" name="my_order">
+                        <option value="Select order items">Select order items</option>
+                        <option value="Plain rice">Plain rice</option>
+                        <option value="Chips">Chips</option>
+                        <option value="Grilled Chicken">Grilled Chicken</option>
+                    </select>
+                </div>
+                <div class="notes">
+                    <textarea class="order-message" placeholder="Any additional notes ....."></textarea>
+                </div>
                 <input type="button" class="btn-make-order" value="Make order">
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 <footer>
     <div class="footer-wrapper">
-        <p align="center" style="margin-top: 20px; margin-bottom: 15px;">Copyright © 2018 Fast-food-fast . All Rights Reserved.</p>
+        <p align="center" class="footer-text">Copyright © 2018 Fast-food-fast . All Rights Reserved.</p>
         <p align="center"><img src="../assets/images/Fast-Food.png" height="25" alt="Fast-food-fast"/></p>
     </div>
 </footer>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
 </body>
 </html>
