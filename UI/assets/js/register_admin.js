@@ -14,7 +14,7 @@ function registerAdmin(e) {
     let password = document.register_form.pass.value;
     let account_type = document.register_form.account_type.value;
 
-    fetch("http://0.0.0.0:5000/api/v1/auth/signup", {
+    fetch("https://fast-food-andela-way.herokuapp.com/api/v1/auth/signup", {
         method: "POST",
         headers: {
             'Accept': 'application/json, text/plain, */*',
