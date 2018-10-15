@@ -5,15 +5,16 @@
     <title>Fast-food-fast | Login</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <link href="UI/assets/css/main.css" rel="stylesheet" type="text/css"/>
-    <script type="application/javascript" src="UI/assets/js/validation.js"></script>
+    <link href="../assets/css/main.css" rel="stylesheet" type="text/css"/>
+    <script type="application/javascript" src="../assets/js/validation.js"></script>
+    <script type="application/javascript" src="../assets/js/register_admin.js"></script>
 </head>
 <body>
-<nav class="navigation-bar">
+<nav class="navigation-bar" id="navigation-bar-admin">
     <div class="nav-content">
         <div class="logo" >
-            <a href="index.html">
-                <img src="UI/assets/images/Fast-Food.png" height="100" alt="Fast-food-fast"/>
+            <a href="../../index.html">
+                <img src="../assets/images/Fast-Food.png" height="100" alt="Fast-food-fast"/>
             </a>
         </div>
         <div class="logo-text">
@@ -23,11 +24,11 @@
 </nav>
 <div class="wrapper">
     <div class="sign-up-login">
-        <div class="left">
-            <h3 align="center">CREATE ACCOUNT</h3>
-            <form method="post" id="register_form" name="register_form">
+        <div class="admin-register" align="center">
+            <h3 align="center">create admin account</h3>
+            <form id="register_form" name="register_form">
                 <input type="text" id="reg-username" onblur="offName()" onkeyup="validateUsername()" name="reg_username" placeholder="Username">
-                <p id="miss_name" class="miss_name">At-least 4 alphabetic characters but not more than 12</p>
+                <p id="miss_name" class="miss_name">Atleast 4 alphabetic characters but not more than 12</p>
                 <input type="email" id="email" onblur="offEmail()" onkeyup="validateEmail()" name="email" placeholder="Email" required disabled>
                 <p id="miss_email" class="miss_email">Email format xxxx@xxx.xxx</p>
                 <input type="text" id="contact" onblur="offContact()" onkeyup="validateContact()" name="contact" placeholder="Contact" required disabled>
@@ -36,25 +37,9 @@
                 <p id="miss_pass" class="miss_pass">Password should be at-least 6 to 15 characters</p>
                 <input type="password" id="pass_rpt" onblur="offVerifyPass()" onkeyup="verifyPassword()"  name="pass_rpt" placeholder="Confirm Password" required disabled>
                 <p id="miss_pass_rpt" class="miss_pass_rpt">Passwords don't much</p>
-                <input type="hidden" id="account_type" name="account_type" value="client">
+                <input type="hidden" id="account_type" name="account_type" value="admin">
                 <input type="submit" id="register_btn" class="btn-sign-up" value="Sign Up" disabled>
             </form>
-        </div>
-        <div class="right">
-            <h3 align="center">LOGIN</h3>
-            <form method="post" id="login_form" name="login_form">
-                <input type="text" id="username" name="username" placeholder="Username" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <!--<select name="user_type" id="user_type" required >
-                    <option value="client">Our Client</option>
-                    <option value="admin">Our Admin</option>
-                </select>
-                <input id="check" type="checkbox" checked name="" ><b style="color: blue">keep me signed in</b>-->
-                <input type="submit" class="btn-login" value="Login">
-            </form>
-        </div>
-        <div class="circle">
-            <p>OR</p>
         </div>
     </div>
     <!-- The Modal -->
@@ -98,10 +83,8 @@
 <footer>
     <div class="footer-wrapper">
         <p align="center" class="footer-text">Copyright © 2018 Fast-food-fast . All Rights Reserved.</p>
-        <p align="center"><img src="UI/assets/images/Fast-Food.png" height="25" alt="Fast-food-fast"/></p>
+        <p align="center"><img src="../assets/images/Fast-Food.png" height="25" alt="Fast-food-fast"/></p>
     </div>
 </footer>
 </body>
-<script type="application/javascript" src="UI/assets/js/register.js"></script>
-<script type="application/javascript" src="UI/assets/js/login.js"></script>
 </html>
