@@ -28,8 +28,7 @@ function register(e) {
             contact: contact,
             password: password,
             user_type: account_type
-        }),
-
+        })
     })
         .then((response) => response.json())
         .then((response_object) => {
@@ -50,10 +49,7 @@ function register(e) {
                         window.location = "index.html";
                     }
                 };
-
-
                 // alert(response_object.message)
-
             }else {
                 console.log(response_object);
                 let message = response_object.error_message;
