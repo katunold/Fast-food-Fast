@@ -1,7 +1,5 @@
 "use strict";
-window.onload = function () {
-    document.getElementById("register_form").addEventListener("submit", register);
-};
+document.getElementById("register_form").addEventListener("submit", register);
 
 // Register new account
 

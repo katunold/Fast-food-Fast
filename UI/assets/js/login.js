@@ -1,7 +1,5 @@
 "use strict";
-window.onload = function () {
-    document.getElementById("login_form").addEventListener("submit", login);
-};
+document.getElementById("login_form").addEventListener("submit", login);
 
 function login(e) {
     e.preventDefault();
