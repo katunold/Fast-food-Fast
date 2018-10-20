@@ -59,9 +59,9 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
             let table = document.getElementById("menu_items");
 
             index++;
+            let index_option = 0;
             for (index; index < response_object.data.length; index++) {
-                let field = response_object.data[index];
-                console.log(field["item_name"], field["item_status"], field["price"]);
+                let field = response_object.data[index_option];
                 let tr = table.insertRow(index);
                 tr.setAttribute("id", field["item_id"]);
                 let td1 = document.createElement("td");
