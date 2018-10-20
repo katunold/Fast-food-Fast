@@ -41,8 +41,10 @@ function register(e) {
                 console.log(response_object);
 
                 // When the user clicks on <span> (x), close the modal
+                let span = document.getElementById("close");
                 span.onclick = function() {
                     modal.style.display = "none";
+                    window.location = "index.html";
                 };
 
                 // When the user clicks anywhere outside of the modal, close it

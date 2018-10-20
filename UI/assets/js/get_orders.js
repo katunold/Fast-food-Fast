@@ -87,8 +87,16 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
             }
 
         }else {
-            console.log(response_object);
-            alert("Data was not fetched");
+            if (response_object.message === "Token blacklisted. Please log in again."
+                || response_object.message === "Signature expired. Please log in again."
+                || response_object.message === "Invalid token. Please log in again.") {
+                alert(response_object.message);
+                window.location = window.location = "../../index.html";
+            }
+            else {
+                alert(response_object.message);
+                window.location = "orders.html";
+            }
         }
     });
 
