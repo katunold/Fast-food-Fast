@@ -9,7 +9,7 @@
     <link href="../assets/css/main1.css" rel="stylesheet" type="text/css"/>
 </head>
 <body id="user_background">
-<nav class="navigation-bar">
+<nav class="navigation-bar" >
     <div class="nav-content">
         <div class="logo" >
             <a href="#">
@@ -21,11 +21,7 @@
         </div>
         <div class="links">
             <ul>
-                <li >
-                    <a href="make_orders.html">
-                        Order Today
-                    </a>
-                </li>
+                <li ><a href="make_orders.html">Order Today</a></li>
                 <li ><a href="user_profile.html" class="active">Your Profile</a></li>
                 <li ><a href="../../index.html">Sign-out</a></li>
             </ul>
@@ -33,103 +29,23 @@
     </div>
 </nav>
 <div class="wrapper">
-    <div class="item-available">
+    <div id="item-available" class="item-available">
         <h3>Your History of Orders</h3>
-        <table>
-            <tr>
-                <th>Food Item</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>Date</th>
-            </tr>
-            <tr>
-                <td>Chips</td>
-                <td>3000/=</td>
-                <td>pending</td>
-                <td>20-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-            <tr>
-                <td>Chips & Chicken</td>
-                <td>6000/=</td>
-                <td>Delivered</td>
-                <td>14-08-2018</td>
-            </tr>
-        </table>
     </div>
     <div class="order">
         <h3>Your Profile</h3>
         <div class="profile_main">
             <div class="profile_1">
                 <label>User Name :</label><br>
-                <input type="text" placeholder="Arnold">
+                <input id="profile_name" type="text" placeholder="Arnold">
             </div>
             <div class="profile_1">
                 <label>Email :</label><br>
-                <input type="email" placeholder="arnold@gmail.com">
+                <input id="profile_email" type="email" placeholder="arnold@gmail.com">
             </div>
             <div class="profile_1">
                 <label>Contact number :</label><br>
-                <input type="text" placeholder="(+256)70-618-070">
+                <input id="profile_contact" type="text" placeholder="(+256)70-618-070">
             </div>
             <div>
                 <input type="button" value="edit">
@@ -144,13 +60,5 @@
     </div>
 </footer>
 </body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<script type="application/javascript" src="../assets/js/order_history.js"></script>
 </html>

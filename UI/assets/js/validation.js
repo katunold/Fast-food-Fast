@@ -82,3 +82,31 @@ function offVerifyPass() {
     document.getElementById("miss_pass_rpt").style.display = "none";
 }
 
+// Add menu items validation
+
+function validateItemName() {
+    let item_name = document.getElementById("item_name").value;
+    let exp = /^[A-Za-z\s]{3,30}/;
+
+    if (exp.test(item_name)) {
+        document.getElementById("item_price").disabled = false;
+        document.getElementById("invalid_item_name").style.display = "none";
+    }else {
+        document.getElementById("item_price").disabled = true;
+        document.getElementById("add_item_btn").disabled = true;
+        document.getElementById("invalid_item_name").style.display = "block";
+    }
+}
+
+function validateItemPrice() {
+    let item_price = document.getElementById("item_price").value;
+    let exp = /^([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|[1-4][0-9][0-9][0-9][0-9]|[5][0][0][0][0])$/;
+
+    if (exp.test(item_price)) {
+        document.getElementById("add_item_btn").disabled = false;
+        document.getElementById("invalid_item_price").style.display = "none";
+    }else {
+        document.getElementById("add_item_btn").disabled = true;
+        document.getElementById("invalid_item_price").style.display = "block";
+    }
+}

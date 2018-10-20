@@ -24,19 +24,19 @@ function login(e) {
             let token = data.auth_token;
             let message = data.message;
             let account = data.logged_in_as;
-            if (account === "admin") {
-                localStorage.setItem("accessToken", token);
-                localStorage.setItem("user_type", account);
-                window.location = "UI/admin/orders.html";
+            if (data.status === "success") {
+                if (account === "admin") {
+                    localStorage.setItem("accessToken", token);
+                    localStorage.setItem("user_type", account);
+                    window.location = "UI/admin/orders.html";
 
-            }
-            else if (account === "client") {
-                localStorage.setItem("accessToken", token);
-                localStorage.setItem("user_type", account);
-                window.location = "UI/client/make_orders.html";
+                } else {
+                    localStorage.setItem("accessToken", token);
+                    localStorage.setItem("user_type", account);
+                    window.location = "UI/client/make_orders.html";
+                }
             }
             else {
-                console.log(data);
                 alert(message);
             }
         });

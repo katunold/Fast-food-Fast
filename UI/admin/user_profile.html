@@ -9,7 +9,7 @@
     <link href="../assets/css/main1.css" rel="stylesheet" type="text/css"/>
 </head>
 <body id="user_background">
-<nav class="navigation-bar" >
+<nav class="navigation-bar" id="navigation-bar-admin" >
     <div class="nav-content">
         <div class="logo" >
             <a href="#">
@@ -21,8 +21,10 @@
         </div>
         <div class="links">
             <ul>
-                <li ><a href="make_orders.html" class="active">Order Today</a></li>
-                <li ><a href="user_profile.html">Your Profile</a></li>
+                <li ><a href="orders.html">Orders</a></li>
+                <li ><a href="items.html">Items</a></li>
+                <li ><a href="make_orders.html">Order Today</a></li>
+                <li ><a href="user_profile.html" class="active">Your Profile</a></li>
                 <li ><a href="../../index.html">Sign-out</a></li>
             </ul>
         </div>
@@ -30,19 +32,26 @@
 </nav>
 <div class="wrapper">
     <div id="item-available" class="item-available">
-        <h3>Available Food & Snacks</h3>
+        <h3>Your History of Orders</h3>
     </div>
     <div class="order">
-        <h3>Make Your Order</h3>
+        <h3>Your Profile</h3>
         <div class="profile_main">
-            <form method="post" id="post_order">
-                <div id="select-item" class="select-item">
-                </div>
-                <div class="notes">
-                    <textarea id="order-message" class="order-message" placeholder="Any additional notes ....."></textarea>
-                </div>
-                <input type="submit" id="btn-make-order" class="btn-make-order" value="Make order">
-            </form>
+            <div class="profile_1">
+                <label>User Name :</label><br>
+                <input id="profile_name" type="text" placeholder="Arnold">
+            </div>
+            <div class="profile_1">
+                <label>Email :</label><br>
+                <input id="profile_email" type="email" placeholder="arnold@gmail.com">
+            </div>
+            <div class="profile_1">
+                <label>Contact number :</label><br>
+                <input id="profile_contact" type="text" placeholder="(+256)70-618-070">
+            </div>
+            <div>
+                <input type="button" value="edit">
+            </div>
         </div>
     </div>
 </div>
@@ -53,5 +62,5 @@
     </div>
 </footer>
 </body>
-<script type="application/javascript" src="../assets/js/make_order.js"></script>
+<script type="application/javascript" src="../assets/js/order_history.js"></script>
 </html>
