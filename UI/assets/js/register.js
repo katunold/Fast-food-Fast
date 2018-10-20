@@ -40,6 +40,11 @@ function register(e) {
                 modal.style.display = "block";
                 console.log(response_object);
 
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                };
+
                 // When the user clicks anywhere outside of the modal, close it
                 window.onclick = function(event) {
                     if (event.target === modal) {
@@ -49,16 +54,17 @@ function register(e) {
                 };
                 // alert(response_object.message)
             }else {
-                console.log(response_object);
-                let message = response_object.error_message;
-                alert(message);
+                if (response_object.message === "Token blacklisted. Please log in again."
+                    || response_object.message === "Signature expired. Please log in again."
+                    || response_object.message === "Invalid token. Please log in again.") {
+                    alert(response_object.message);
+                    window.location = window.location = "../../index.html";
+                }
+                else {
+                    alert(response_object.message);
+                }
             }
 
         });
 }
 
-function submit() {
-    /*Put all the data posting code here*/
-    console.log("reseting form");
-    document.getElementById("login_form").reset();
-}
