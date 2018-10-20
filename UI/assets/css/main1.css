@@ -10,13 +10,13 @@ div.item-available {
     margin: 2em 2em 0;
 }
 
-table {
+table.main-tables {
     border-collapse: collapse;
     width: 100%;
     background-color: #3b3a30;
 }
 
-th, td {
+table.main-tables th,table.main-tables td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -32,7 +32,7 @@ div.order {
 
 div.select-item, div.notes {
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 #my_order{
@@ -50,12 +50,11 @@ div.select-item, div.notes {
 }
 
 input.btn-make-order {
-    margin-bottom: 5px;
+    padding: 10px 10px;
+    width: 100px;
+    display: block;
+    margin-bottom: 10px;
     background-color: gainsboro;
-    width: fit-content;
-    height: 3em;
-    padding: 2px;
-    border-radius: .5em;
 }
 
 /*--- exceptions of user_profile settings ---*/
@@ -81,7 +80,7 @@ div.profile_main {
 /* If the screen size is 1000px or less, set the font-size of <div> to 6px */
 @media only screen and (max-width: 1000px) {
     .navigation-bar{
-        height: 150px;
+        height: 180px;
         padding: 3px 0;
     }
 

@@ -215,6 +215,15 @@ div.sign-up-login div.left form .btn-sign-up {
     background-color: gainsboro;
 }
 
+input.add_item_btn {
+    padding: 10px 10px;
+    width: 100px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: gainsboro;
+}
+
 div.sign-up-login div.admin-register form .btn-sign-up {
     padding: 10px 10px;
     width: 100px;
@@ -309,7 +318,7 @@ p.footer-text {
 
 /*----------- Input validations------------*/
 
-p.miss_name, p.miss_email, p.miss_contact, p.miss_pass, p.miss_pass_rpt {
+p.miss_name, p.miss_email, p.miss_contact, p.miss_pass, p.miss_pass_rpt, p.invalid_item_name, p.invalid_item_price {
     display: none;
     color: red;
 }
