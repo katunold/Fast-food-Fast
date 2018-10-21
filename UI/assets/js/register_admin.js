@@ -1,6 +1,5 @@
 "use strict";
-document.getElementById("register_form").addEventListener("submit", registerAdmin, loadContent);
-
+document.getElementById("register_form").addEventListener("submit", registerAdmin);
 // Register new account
 
 function registerAdmin(e) {
@@ -11,9 +10,10 @@ function registerAdmin(e) {
     let contact = document.register_form.contact.value;
     let password = document.register_form.pass.value;
     let account_type = document.register_form.account_type.value;
+    document.getElementById("loader-body").style.display = "block";
 
 
-    fetch("https://fast-food-andela-way.herokuapp.com/v1/auth/signup", {
+    fetch("https://fast-food-andela-way.herokuapp.com/api/v1/auth/signup", {
         method: "POST",
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -37,15 +37,14 @@ function registerAdmin(e) {
                 document.getElementById("email_data").innerHTML += response_object.data.email;
                 document.getElementById("contact_data").innerHTML += response_object.data.contact;
                 document.getElementById("account_data").innerHTML += response_object.data.user_type;
-                document.getElementById("loader").style.display = "none";
+                document.getElementById("loader-body").style.display = "none";
                 modal.style.display = "block";
-                console.log(response_object);
 
                 // When the user clicks on <span> (x), close the modal
                 let span = document.getElementById("close");
                 span.onclick = function() {
                     modal.style.display = "none";
-                    window.location = "index.html";
+                    window.location = "../../index.html";
                 };
 
                 // When the user clicks anywhere outside of the modal, close it
