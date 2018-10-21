@@ -11,6 +11,7 @@ function register(e) {
     let contact = document.register_form.contact.value;
     let password = document.register_form.pass.value;
     let account_type = document.register_form.account_type.value;
+    document.getElementById("loader-body").style.display = "block";
 
     fetch("https://fast-food-andela-way.herokuapp.com/api/v1/auth/signup", {
         method: "POST",
@@ -37,6 +38,7 @@ function register(e) {
                 document.getElementById("email_data").innerHTML += response_object.data.email;
                 document.getElementById("contact_data").innerHTML += response_object.data.contact;
                 document.getElementById("account_data").innerHTML += response_object.data.user_type;
+                document.getElementById("loader-body").style.display = "none";
                 modal.style.display = "block";
                 console.log(response_object);
 
