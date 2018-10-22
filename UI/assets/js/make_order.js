@@ -1,5 +1,6 @@
 "use strict";
 document.getElementById("post_order").addEventListener("submit", makeOrder);
+document.getElementById("loader-body").style.display = "block";
 let token = localStorage.getItem("accessToken");
 fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
     method: "GET",
@@ -78,15 +79,18 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
                 td3.innerHTML = field["item_status"];
 
             }
+            document.getElementById("loader-body").style.display = "none";
 
         }else {
             if (response_object.message === "Token blacklisted. Please log in again."
                 || response_object.message === "Signature expired. Please log in again."
                 || response_object.message === "Invalid token. Please log in again.") {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
                 window.location = window.location = "../../index.html";
             }
             else {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
             }
         }
@@ -96,6 +100,7 @@ function makeOrder(e) {
     e.preventDefault();
     let order = document.getElementById("my_order").value;
     let order_notes = document.getElementById("order-message").value;
+    document.getElementById("loader-body").style.display = "block";
     console.log(order_notes);
     fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
         method: "POST",
@@ -113,16 +118,18 @@ function makeOrder(e) {
         .then((response) => response.json())
         .then((response_object) => {
             if (response_object.status === "success") {
-                console.log(response_object);
+                document.getElementById("loader-body").style.display = "none";
                 alert("Your order has been posted");
             }else {
                 if (response_object.message === "Token blacklisted. Please log in again."
                     || response_object.message === "Signature expired. Please log in again."
                     || response_object.message === "Invalid token. Please log in again.") {
+                    document.getElementById("loader-body").style.display = "none";
                     alert(response_object.message);
                     window.location = window.location = "../../index.html";
                 }
                 else {
+                    document.getElementById("loader-body").style.display = "none";
                     alert(response_object.message);
                 }
             }

@@ -1,5 +1,6 @@
 "use strict";
 let token = localStorage.getItem("accessToken");
+document.getElementById("loader-body").style.display = "block";
 fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
     method: "GET",
     headers: {
@@ -13,7 +14,7 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
     .then((response_object) => {
         if (response_object.status === "success") {
             // ARRAY FOR HEADER.
-            let arrHead = ['Food Item', 'Price', 'Status', 'Delete item']; // SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
+            let arrHead = ['Food Item', 'Unit Price', 'Status', 'Delete item']; // SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
 
             // CREATE A TABLE STRUCTURE BY ADDING A FEW HEADERS
 
@@ -38,8 +39,10 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
             let table = document.getElementById("menu_items");
 
             index++;
+            let item_index = 0;
             for (index; index <= response_object.data.length; index++) {
-                let field = response_object.data[index];
+                let field = response_object.data[item_index];
+                item_index++;
                 let tr = table.insertRow(index);
                 tr.setAttribute("id", field["item_id"]);
                 let td1 = document.createElement("td");
@@ -60,13 +63,14 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
                 button.setAttribute("value", "Delete");
                 button.setAttribute("onclick", "dips(this)");
                 td4.appendChild(button);
-
+                document.getElementById("loader-body").style.display = "none";
             }
 
         }else {
             if (response_object.message === "Token blacklisted. Please log in again."
                 || response_object.message === "Signature expired. Please log in again."
                 || response_object.message === "Invalid token. Please log in again.") {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
                 window.location = window.location = "../../index.html";
             }
@@ -80,6 +84,7 @@ function dips(item) {
     console.log(item.parentNode.parentNode.attributes.id.nodeValue);
     let item_id = item.parentNode.parentNode.attributes.id.nodeValue;
     let del_item = item.parentNode.parentNode.firstChild.innerHTML;
+    document.getElementById("loader-body").style.display = "none";
     fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/"+item_id, {
         method: "DELETE",
         headers: {
@@ -92,16 +97,19 @@ function dips(item) {
         .then((response) => response.json())
         .then((response_object) => {
             if (response_object.status === "success") {
+                document.getElementById("loader-body").style.display = "none";
                 alert(del_item +" deleted");
                 window.location = "items.html"
             }else {
                 if (response_object.message === "Token blacklisted. Please log in again."
                     || response_object.message === "Signature expired. Please log in again."
                     || response_object.message === "Invalid token. Please log in again.") {
+                    document.getElementById("loader-body").style.display = "none";
                     alert(response_object.message);
                     window.location = window.location = "../../index.html";
                 }
                 else {
+                    document.getElementById("loader-body").style.display = "none";
                     alert(response_object.message);
                 }
             }

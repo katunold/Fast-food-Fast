@@ -1,5 +1,6 @@
 "use strict";
 let token = localStorage.getItem("accessToken");
+document.getElementById("loader-body").style.display = "block";
 fetch("https://fast-food-andela-way.herokuapp.com/api/v1/users/orders", {
     method: "GET",
     headers: {
@@ -68,14 +69,17 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/users/orders", {
             document.getElementById("profile_name").value = profile_data["client"];
             document.getElementById("profile_email").value = profile_data["client_email"];
             document.getElementById("profile_contact").value = profile_data["client_contact"];
+            document.getElementById("loader-body").style.display = "none";
         }else {
             if (response_object.message === "Token blacklisted. Please log in again."
                 || response_object.message === "Signature expired. Please log in again."
                 || response_object.message === "Invalid token. Please log in again.") {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
                 window.location = window.location = "../../index.html";
             }
             else {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
             }
         }
