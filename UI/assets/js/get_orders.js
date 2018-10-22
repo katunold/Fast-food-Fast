@@ -1,5 +1,6 @@
 "use strict";
 let token = localStorage.getItem("accessToken");
+document.getElementById("loader-body").style.display = "block";
 fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
     method: "GET",
     headers: {
@@ -85,15 +86,18 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
                 }
                 td5.appendChild(select);
             }
+            document.getElementById("loader-body").style.display = "none";
 
         }else {
             if (response_object.message === "Token blacklisted. Please log in again."
                 || response_object.message === "Signature expired. Please log in again."
                 || response_object.message === "Invalid token. Please log in again.") {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
                 window.location = window.location = "../../index.html";
             }
             else {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
                 window.location = "orders.html";
             }
@@ -103,6 +107,7 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
 function updateStatus(status_data) {
     let new_status = status_data.value;
     let order_id = status_data.parentNode.parentNode.attributes.id.nodeValue;
+    document.getElementById("loader-body").style.display = "block";
 
     fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders/"+order_id, {
         method: "PUT",
@@ -119,15 +124,18 @@ function updateStatus(status_data) {
         .then((response) => response.json())
         .then((response_object) => {
             if (response_object.status === "success") {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
             }else {
                 if (response_object.message === "Token blacklisted. Please log in again."
                     || response_object.message === "Signature expired. Please log in again."
                     || response_object.message === "Invalid token. Please log in again.") {
+                    document.getElementById("loader-body").style.display = "none";
                     alert(response_object.message);
                     window.location = window.location = "../../index.html";
                 }
                 else {
+                    document.getElementById("loader-body").style.display = "none";
                     alert(response_object.message);
                     window.location = "orders.html";
                 }

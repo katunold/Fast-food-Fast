@@ -5,6 +5,7 @@ function login(e) {
     e.preventDefault();
     let user_name = document.login_form.username.value;
     let password = document.login_form.password.value;
+    document.getElementById("loader-body").style.display = "block";
 
     fetch("https://fast-food-andela-way.herokuapp.com/api/v1/auth/login/", {
         method: "POST",
@@ -28,15 +29,18 @@ function login(e) {
                 if (account === "admin") {
                     localStorage.setItem("accessToken", token);
                     localStorage.setItem("user_type", account);
+                    document.getElementById("loader-body").style.display = "none";
                     window.location = "UI/admin/orders.html";
 
                 } else {
                     localStorage.setItem("accessToken", token);
                     localStorage.setItem("user_type", account);
+                    document.getElementById("loader-body").style.display = "none";
                     window.location = "UI/client/make_orders.html";
                 }
             }
             else {
+                document.getElementById("loader-body").style.display = "none";
                 alert(message);
             }
         });

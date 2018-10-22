@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link href="../assets/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/css/main1.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/loader.css" rel="stylesheet" type="text/css"/>
     <script type="application/javascript" src="../assets/js/validation.js"></script>
 </head>
 <body class="user_background">
@@ -32,6 +33,9 @@
     </div>
 </nav>
 <div class="wrapper">
+    <div id="loader-body" class="loader-body">
+        <div align="center" class="lds-ripple"><div></div><div></div></div>
+    </div>
     <div id="item-available" class="item-available">
         <h3>Items at Fast-Food</h3>
     </div>
@@ -69,7 +73,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close">&times;</span>
+                <span id="close" class="close">&times;</span>
                 <h2>New Item Added</h2>
             </div>
             <div class="modal-body">
