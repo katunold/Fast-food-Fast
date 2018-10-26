@@ -61,7 +61,7 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/users/orders", {
 
                 td1.innerHTML = field["order_id"];
                 td2.innerHTML = field["order_item"];
-                td3.innerHTML = field["order_cost"];
+                td3.innerHTML = field["order_cost"] + "/=";
                 td4.innerHTML = field["order_date"];
                 td5.innerHTML = field["order_status"];
             }

@@ -104,7 +104,6 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
             else {
                 document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
-                window.location = "orders.html";
             }
         }
     });
@@ -175,7 +174,7 @@ function detailedOrder(order) {
                 document.getElementById("order_id_data").innerHTML = order_data.order_id;
                 document.getElementById("order_item_data").innerHTML = order_data.order_item;
                 document.getElementById("order_notes_data").innerHTML = order_data.special_notes;
-                document.getElementById("unit_price_data").innerHTML = order_data.order_cost;
+                document.getElementById("unit_price_data").innerHTML = order_data.order_cost + "/=";
                 document.getElementById("order_status_data").innerHTML = order_data.order_status;
                 document.getElementById("account_data").innerHTML = order_data.order_date;
                 document.getElementById("loader-body").style.display = "none";

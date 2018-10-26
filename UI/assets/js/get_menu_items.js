@@ -55,7 +55,7 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
                 td4 = tr.insertCell(3);
 
                 td1.innerHTML = field["item_name"];
-                td2.innerHTML = field["price"];
+                td2.innerHTML = field["price"] + "/=";
                 td3.innerHTML = field["item_status"];
 
                 let button = document.createElement("input");
@@ -75,6 +75,7 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
                 window.location = window.location = "../../index.html";
             }
             else {
+                document.getElementById("loader-body").style.display = "none";
                 alert(response_object.message);
             }
         }
@@ -84,7 +85,7 @@ function dips(item) {
     console.log(item.parentNode.parentNode.attributes.id.nodeValue);
     let item_id = item.parentNode.parentNode.attributes.id.nodeValue;
     let del_item = item.parentNode.parentNode.firstChild.innerHTML;
-    document.getElementById("loader-body").style.display = "none";
+    document.getElementById("loader-body").style.display = "block";
     fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/"+item_id, {
         method: "DELETE",
         headers: {
