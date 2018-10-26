@@ -38,7 +38,7 @@ function addItem(e) {
                 let span = document.getElementById("close");
                 span.onclick = function() {
                     modal.style.display = "none";
-                    window.location = "index.html";
+                    window.location = "items.html";
                 };
 
                 window.onclick = function(event) {

@@ -65,6 +65,7 @@ function register(e) {
                     window.location = window.location = "../../index.html";
                 }
                 else {
+                    document.getElementById("loader-body").style.display = "none";
                     alert(response_object.message);
                 }
             }

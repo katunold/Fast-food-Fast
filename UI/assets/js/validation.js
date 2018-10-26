@@ -7,9 +7,17 @@ function validateUsername() {
     let exp = /^[A-Za-z\s]{4,12}/;
     if (exp.test(username)) {
         document.getElementById("email").disabled = false;
+        document.getElementById("contact").disabled = true;
+        document.getElementById("pass").disabled = true;
+        document.getElementById("pass_rpt").disabled = true;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_name").style.display = "none";
     }else {
         document.getElementById("email").disabled = true;
+        document.getElementById("contact").disabled = true;
+        document.getElementById("pass").disabled = true;
+        document.getElementById("pass_rpt").disabled = true;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_name").style.display = "block";
     }
 }
@@ -23,9 +31,15 @@ function validateEmail() {
     let exp = /^\w+([\-.]?\w+)*@\w+([\-.]?\w+)*(\.\w{2,3})+$/;
     if (exp.test(email)) {
         document.getElementById("contact").disabled = false;
+        document.getElementById("pass").disabled = true;
+        document.getElementById("pass_rpt").disabled = true;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_email").style.display = "none";
     }else {
         document.getElementById("contact").disabled = true;
+        document.getElementById("pass").disabled = true;
+        document.getElementById("pass_rpt").disabled = true;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_email").style.display = "block";
     }
 }
@@ -39,9 +53,13 @@ function validateContact() {
     let exp = /\d{10,13}/;
     if (exp.test(contact)) {
         document.getElementById("pass").disabled = false;
+        document.getElementById("pass_rpt").disabled = true;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_contact").style.display = "none";
     }else {
         document.getElementById("pass").disabled = true;
+        document.getElementById("pass_rpt").disabled = true;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_contact").style.display = "block";
     }
 }
@@ -55,9 +73,11 @@ function validatePassword() {
     let exp = /^[\S\s]{6,15}$/;
     if (exp.test(password)) {
         document.getElementById("pass_rpt").disabled = false;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_pass").style.display = "none";
     }else {
         document.getElementById("pass_rpt").disabled = true;
+        document.getElementById("register_btn").disabled = true;
         document.getElementById("miss_pass").style.display = "block";
     }
 }
