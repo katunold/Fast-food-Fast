@@ -75,7 +75,7 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/menu/", {
                 td3 = tr.insertCell(2);
 
                 td1.innerHTML = field["item_name"];
-                td2.innerHTML = field["price"];
+                td2.innerHTML = field["price"] + "/=";
                 td3.innerHTML = field["item_status"];
 
             }

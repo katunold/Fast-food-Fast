@@ -13,7 +13,6 @@ function login(e) {
             'Accept': 'application/json, text/plain, */*',
             'Content-type':'application/json',
             'Access-Control-Allow-Origin': '*'
-
         },
         body: JSON.stringify({
             user_name: user_name,

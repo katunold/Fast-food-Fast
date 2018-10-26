@@ -5,6 +5,7 @@
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
+    text-align: center;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -16,7 +17,7 @@
     position: relative;
     width: 64px;
     height: 64px;
-    margin: 25em 60em;
+    margin-top: 25em;
 }
 .lds-ripple div {
     position: absolute;
