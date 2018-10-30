@@ -50,6 +50,7 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
                 console.log(field["order_id"], field["order_item"], field["client"], field["client_contact"]);
                 let tr = table.insertRow(index);
                 tr.setAttribute("id", field["order_id"]);
+                tr.setAttribute("class", "orders-row");
                 //tr.setAttribute("onclick", "detailedOrder(this)");
                 let td1 = document.createElement("td");
                 let td2 = document.createElement("td");
@@ -58,18 +59,42 @@ fetch("https://fast-food-andela-way.herokuapp.com/api/v1/orders", {
                 let td5 = document.createElement("td");
                 td1 = tr.insertCell(0);
                 td1.setAttribute("onclick", "detailedOrder(this)");
+                td1.setAttribute("class", "oder-data");
                 td2 = tr.insertCell(1);
                 td2.setAttribute("onclick", "detailedOrder(this)");
+                td2.setAttribute("class", "oder-data");
                 td3 = tr.insertCell(2);
                 td3.setAttribute("onclick", "detailedOrder(this)");
+                td3.setAttribute("class", "oder-data");
                 td4 = tr.insertCell(3);
                 td4.setAttribute("onclick", "detailedOrder(this)");
+                td4.setAttribute("class", "oder-data");
                 td5 = tr.insertCell(4);
 
                 td1.innerHTML = field["order_id"];
+                let span1 = document.createElement("span");
+                span1.setAttribute("class", "tool-tip-text");
+                span1.innerHTML = "Click to view full details of order " + field["order_id"];
+                td1.appendChild(span1);
+
                 td2.innerHTML = field["order_item"];
+                let span2 = document.createElement("span");
+                span2.setAttribute("class", "tool-tip-text");
+                span2.innerHTML = "Click to view full details of order " + field["order_id"];
+                td2.appendChild(span2);
+
                 td3.innerHTML = field["client"];
+                let span3 = document.createElement("span");
+                span3.setAttribute("class", "tool-tip-text");
+                span3.innerHTML = "Click to view full details of order " + field["order_id"];
+                td3.appendChild(span3);
+
                 td4.innerHTML = field["client_contact"];
+                let span4 = document.createElement("span");
+                span4.setAttribute("class", "tool-tip-text");
+                span4.innerHTML = "Click to view full details of order " + field["order_id"];
+                td4.appendChild(span4);
+
                 let select = document.createElement("select");
                 select.setAttribute("name", "order_status");
                 select.setAttribute("id", "order_status");
